@@ -1,0 +1,877 @@
+<!DOCTYPE HTML>
+<html manifest="lt1.manifest?v=2013101100">
+<head>
+<meta charset="UTF-8">
+<title>美女辣图</title>
+<meta name="version" content="2.0.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<link rel="apple-touch-icon-precomposed" href="app_icon_114.png?v=201303130000" />
+<style>
+    *, ::after, ::before{
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+        -moz-tap-highlight-color:rgba(0,0,0,0);
+        -o-tap-highlight-color:rgba(0,0,0,0);
+        tap-highlight-color:rgba(0,0,0,0);
+        -webkit-text-size-adjust:none;
+        -moz-text-size-adjust:none;
+        -o-text-size-adjust:none;
+        text-size-adjust:none;
+    }
+    html { background: #383838; }
+    body {margin:0;padding:0;background: #383838;}
+    a { text-decoration: none; }
+    header {height:40px; padding-top: 65px; border-top:1px solid #4c4c4c; border-bottom:1px solid #111111; background:#1f1f1f; position: relative}
+    header .searchBtn {
+        position: absolute;
+        top:0;
+        right: 0;
+        text-indent:-9999px;
+        background-color: #FFF;
+        width:56px;height:40px;
+        background:url(img/search_btn.png?v=201303130000) 50% 50% no-repeat;
+        background-size: 24px auto;
+    }
+    header .cur {
+        background-color: #232323;
+        border-left: 1px solid #111111;
+        padding-bottom: 1px;
+    }
+    header h1{font-size:24px;font-weight: 100;color: #fff;margin:0 50px; height:40px; text-align:center; background:url(img/header.jpg?v=201303130000) center top no-repeat; background-size:auto 35px; margin-top:-1px;}
+
+    /* .searchBar */
+    .searchBar {
+        height: 40px;
+        position:relative;
+        background-color: #232323;
+        border-bottom:1px solid #111111;
+        display: none;
+    }
+    .searchBar input{
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+    .searchBar div {
+        margin-right: 60px;
+        padding: 8px 10px;
+    }
+    .searchBar div input {
+        height: 24px;
+        line-height: 24px;
+        width: 100%;
+        padding: 0 6px;
+        -webkit-appearance:none;
+        border-radius: 5px;
+    }
+    .searchBar .searchBtn {
+        position: absolute;
+        border-radius: 5px;
+        background-color: #dbdbdb;
+        font-size: 14px;
+        width: 50px;
+        line-height: 24px;
+        height: 24px;
+        margin-top: -12px;
+        top:50%;
+        right: 10px;
+        cursor: pointer;
+    }
+    .searchBar .searchBtn:hover {
+        background-color: #bbb;
+    }
+
+    /* nav */
+    nav { background:#1f1f1f; height:40px; position:relative; overflow:hidden; border-bottom:1px solid #4c4c4c; border-top: 1px solid #2a2a2a; box-shadow:0 1px 3px #000; }
+    nav ul { list-style:none; margin:0; padding:0; height:40px; cursor:pointer;}
+    nav ul li { float:left; height:40px; line-height:37px; }
+    nav ul li a { font-size:20px; color:#808080; margin:0 12px; text-align:center; display:block; border-bottom:3px solid #1F1F1F; }
+    nav ul li a.cur { color:#fff; border-bottom:3px solid #dd0000; }
+    .rightMore, .leftMore {background-color:rgba(31, 31, 31, 0.8);float:left; position:absolute; top:0; display:none; z-index:10;}
+    .rightMore {right:0;}
+    .leftMore {left:0;}
+    .rightMore .radian, .leftMore .radian {height:40px;width:7px;float:left;}
+    .rightMore .radian {border-right:1px solid #0a0a0a;border-radius:0 15px 15px 0;box-shadow:1px 0 3px #363636;}
+    .leftMore .radian {border-left:1px solid #0a0a0a;border-radius:15px 0 0 15px;box-shadow:-1px 0 3px #363636;}
+    .rightMore .arrow, .leftMore .arrow {height:0px;float:left;}
+    .rightMore .arrow {border:6px solid #1f1f1f;border-left:5px solid #dd0000;border-right:3px solid #1f1f1f;margin:14px 0 0 3px;}
+    .leftMore .arrow {border:6px solid #1f1f1f;border-right:5px solid #dd0000;border-left:3px solid #1f1f1f;margin:14px 3px 0 0;}
+    
+    /* waterfall */
+    .waterfall { padding-top:6px;}
+    .imgWall {display: -moz-box;display: -webkit-box;display: box; width:480px;margin:5px auto; }
+    .col {-moz-box-flex: 1;-webkit-box-flex: 1;box-flex: 1;width:150px;margin:0 5px;}
+    .col div { border:1px solid #1f1f1f; border-radius:5px; margin-bottom:10px; cursor: pointer;}
+    .col div a {position:relative; display:block; padding-bottom:1px; background:#6d6d6d; border-bottom:1px solid #1f1f1f; border-radius:5px; }
+    .col div img {width:100%; display:block; border-radius:5px;}
+    .col div .imgNum, .col div .loveNum {position:absolute; bottom:4px; left:6px; font-size:14px; font-weight:bold;
+        color:#fff; text-shadow:0px 0px 6px #000; padding-left:22px; line-height:20px; height: 20px}
+    .col div .imgNum { background:url(img/img_icon.png?v=201303130000) left center no-repeat; }
+    .col div .loveNum { background:url(img/love_icon.png?v=201303130000) left center no-repeat; }
+    @media only screen and ( max-width:479px ) {
+        .imgWall {width:99%;margin:5px 0.5%;}
+        .col {width:30%;margin:0 1%;}
+        .col div { margin-bottom:6%;}
+        .col div img {width:100%; }
+    }
+    .turnPage { display:none; }
+    .turnPage .pageNum { padding:6px 0; text-align:center; }
+    .turnPage .pageNum span { display:inline-block; line-height:16px; padding:0 3px; background:#181818; border:1px solid #222222; color:#fff; font-size:14px; border-radius:5px; }
+    .turnPage .btn { position:relative; height:43px; background:#181818; border-top:2px solid #1f1f1f; }
+    .turnPage .btn a { position:absolute; height:42px; border-top:1px solid #2a2a2a; line-height:42px; color:#9c9c9c; text-align:center; }
+    .turnPage .btn #previous { left:0; right:50%; border-right:1px solid #121212; }
+    .turnPage .btn #next { left:50%; right:0; border-left:1px solid #363636; }
+    
+    /* loadStatus */
+    .loadStatus { height:22px; padding:18px 0; display:none; text-align:center; line-height:22px; font-size:16px; color:#fff; }
+    .circle {
+        background-color:rgba(0,0,0,0);/*背景颜色，rgba格式，不多说*/
+        opacity:.9;/*整体透明90%*/
+        border:4px solid rgba(255,255,255,0.4);
+        border-left:4px solid rgba(255,255,255,0.8);/*同上*/
+        border-radius:50px;/*边框为圆角*/
+        /*box-shadow:0 0 8px rgba(255,255,255,0.4), 0 0 6px rgba(255,255,255,0.2) inset;*/
+        width:14px;
+        height:14px;
+        margin:0 5px 0 0 ;
+        display:inline-block;
+        vertical-align: top;
+        -moz-animation:spinPulse 1s infinite ease-in-out;
+        /*moz内核可读，采用spinPulse动画，动画周期1s，infinite代表动画循环，ease-in-out是动画过渡效果*/
+        -webkit-animation:spinPulse 1s infinite linear;/*webkit内核可读，其他同上*/
+    }
+    @-moz-keyframes spinPulse {
+        0% {-moz-transform:rotate(0deg)}
+        100% {-moz-transform:rotate(720deg)}
+    }
+    @-webkit-keyframes spinPulse {
+        0% {-webkit-transform:rotate(0deg)}
+        100% {-webkit-transform:rotate(720deg)}
+    }
+
+    /* .refresh */
+    .refresh {
+        position: fixed;
+        right: 0px;
+        top: 320px;
+        color: #fff;
+        font-size: 13px;
+        line-height: 28px;
+        /*background: url(img/refresh.png) 6px 50% no-repeat rgba(31, 31, 31, 0.8);*/
+        background-color: rgba(31, 31, 31, 0.8);
+        padding: 0 8px 0 6px;
+        border-radius: 20px 0 0 20px;
+        cursor: pointer;
+    }
+    .refresh .refreshIcon {
+        width: 16px;
+        height: 28px;
+        margin: 0 4px;
+        vertical-align: middle;
+        display: inline-block;
+        background: url(img/refresh.png?v=201303130000) 50% 50% no-repeat;
+    }
+
+    /* tipBox */
+    .tipBox {
+        width: 300px;
+        position: fixed;
+        bottom: 4px;
+        left: 50%;
+        margin-left: -150px;
+        background-size: 100%;
+        z-index: 66;
+    }
+
+    .tipBox img {
+        width:100%;
+    }
+    .topprofit{ display: none; position: absolute; top:0; left:50%; z-index: 9999; margin-left:-160px; width: 320px; height: 60px;}
+    #top_flow{position:relative;left:0;top:0;z-index:10000;width:100%;height:60px;overflow:hidden; background: #1f1f1f;text-align:center}
+    .ad_close{position: absolute; top:5px; right:5px; width: 28px;height: 28px;background: url(img/advclose.png) no-repeat 0 0px;cursor: pointer;}
+    .ucDesktop{ display: none; overflow: hidden; position: absolute; right:10px; bottom:7px; width: 70px; height: 25px; line-height: 25px; padding-left: 25px; background: #241D1D url("img/plus.png") 5px center no-repeat; background-size: 15px; border: #C0C0C0 1px solid; border-radius: 3px; font-size: 12px; font-weight: bold; color: #9B9B9B; cursor: pointer;}
+    .ucbox{ overflow: hidden; display: none; position: fixed; top:80px; left:50%; margin-left:-160px; z-index: 10000; width:320px; height: 200px;}
+    #uciframe{ width: 320px; height: 200px; overflow: hidden;}
+
+</style>
+</head>
+<body>
+<header>
+    <div class="topprofit">
+        <div id="top_flow">
+            <a href="#" id="topLink"><img id="topImg" src="img/grey.png" style="width:320px;height:60px;" /></a>
+            <div class="ad_close" id="profit_close"></div>
+        </div>
+    </div>
+    <h1></h1>
+    <div class="ucDesktop">添至UC导航</div>
+    <div class="ucbox" id="ucbox"></div>
+    <a id="searchBtn" class="searchBtn" style="display: none;" href="javascript:void(0);" title="搜索">搜索</a>
+</header>
+<form id="searchBar" class="searchBar" action="">
+    <div>
+        <input id="searchKey" type="search" name="q" placeholder="输入搜索关键词" />
+    </div>
+    <input class="searchBtn" type="submit" value="搜索" />
+</form>
+<nav>
+    <div class="leftMore">
+        <div class="arrow"></div>
+        <div class="radian"></div>
+    </div>
+    <ul onselectstart="return false"></ul>
+    <div class="rightMore">
+        <div class="radian"></div>
+        <div class="arrow"></div>
+    </div>
+</nav>
+<div class="waterfall">
+    <div class="imgWall">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+    <div class="loadStatus"></div>
+    <div class="turnPage">
+        <div class="pageNum"><span></span></div>
+        <div class="btn">
+            <a id="previous" href="javascript:void(0);">上一页</a>
+            <a id="next" href="javascript:void(0);">下一页</a>
+        </div>
+    </div>
+</div>
+<div class="refresh"><i class="refreshIcon"></i>换一波</div>
+<script src="js/common.js?v=201304170000"></script>
+<script>
+    (function() {
+        var translate3d = commonTools.css.translate3d,
+            transition = commonTools.css.transition,
+            transform = commonTools.css.transform,
+            vendor = commonTools.vendor,
+            client = commonTools.fn.client,
+            getJSONP = commonTools.ajax.getJSONP,
+            put = commonTools.ajax.put,
+            ls = commonTools.fn.LS,
+            urls = {
+                nav:    "http://ent.3g.cn/api/photoappnav.ashx?",
+                list:   "http://ent.3g.cn/api/photoapplist.ashx?",
+                search: "http://ent.3g.cn/api/PhotoAppSearch.ashx?",
+                data:   "http://a.3g.cn/wse/getchd.php?ids=1307,1308&",
+                uclink: "http://xuan.3g.cn/goto.php?"
+            };
+
+        // 获取location的hash，以数组返回
+        function getHash(separator) {
+            var s = separator ? separator : "/";
+            return location.hash.slice(1).split(s);
+        }
+
+        // 处理 profit 数据
+        function profit(){
+            var toplink,topimgsrc;
+            getJSONP(urls.data, getsDetail,getsFail);
+            function getsDetail(data){
+                if(data.state != "0"){
+                    toplink = data.topprofit[0].link;
+                    topimgsrc = data.topprofit[0].imgsrc;
+                    document.querySelector("#topLink").href = toplink;
+                    document.querySelector("#topImg").src = topimgsrc;
+                }else{
+                    getsFail();
+                }
+            };
+            function getsFail(){
+                var topprofit = document.querySelector(".topprofit"),
+                header = document.querySelector("header");
+                topprofit.style.display = "none";
+                header.style.paddingTop = 0;
+            };
+        }
+        profit();
+
+        // echoTime
+        function echoTime(str, date) {
+
+            var d = date || new Date();
+
+            function fillZero(num) {
+                return  num < 10 ? "0" + num : num;
+            }
+
+            return str.replace(/\$y/g, d.getFullYear())         // e.g. 2013
+                .replace(/\$m/g, fillZero(d.getMonth() + 1))    // e.g. 01-12
+                .replace(/\$d/g, fillZero(d.getDate()))     // e.g. 01-31
+                .replace(/\$h/g, fillZero(d.getHours()))    // e.g. 00-23
+                .replace(/\$i/g, fillZero(d.getMinutes()))  // e.g. 00-59
+                .replace(/\$s/g, fillZero(d.getSeconds()))  // e.g. 00-59
+                .replace(/\$u/g, d.getMilliseconds())
+                .replace(/\$\//g, "$");
+        }
+
+        // 加载状态控制器
+        var loadStatus = document.getElementsByClassName("loadStatus")[0];
+        function loadStatusController(statusCode) {
+            switch (statusCode) {
+                case 0:
+                    loadStatus.innerHTML = "";
+                    loadStatus.style.display = "";
+                    break;
+
+                case 100:
+                    loadStatus.innerHTML = '<div class="circle"></div>正在加载美女辣图...';
+                    loadStatus.style.display = "block";
+                    break;
+
+                case 200:
+                    loadStatus.innerHTML = "加载成功";
+                    loadStatus.style.display = "";
+                    break;
+
+                case 201:
+                    loadStatus.innerHTML = "没有找到相关词条内容 &gt;_&lt;";
+                    loadStatus.style.display = "block";
+                    break;
+
+                case 404:
+                    loadStatus.innerHTML = "加载失败";
+                    loadStatus.style.display = "block";
+                    break;
+
+                default :
+                    break;
+            }
+        }
+
+        //初始化Nav导航
+        function initNav(data) {
+            var nav = document.querySelector("nav"),
+                ul = document.querySelector("nav ul"),
+                leftMore = document.querySelector(".leftMore"),
+                rightMore = document.querySelector(".rightMore"),
+                navUlWidth = 0,
+                lis = ul.children,
+                length = data.length,
+                str = "",
+                isBegin = false,
+                isMove = false,
+                isWait = false;
+
+            //地址hash处理
+            var cidHash = getHash()[0],
+                navIndex = 0; //当前栏目位置
+
+            for(var i = 0; i < length; i++) {
+                if(data[i].cid === parseInt(cidHash)) {
+                    str += '<li><a class="cur" data-cid="' + data[i].cid + '">' + data[i].cname + '</a></li>';
+                    navIndex = i;
+                } else {
+                    str += '<li><a data-cid="' + data[i].cid + '">' + data[i].cname + '</a></li>';
+                }
+            }
+
+            ul.innerHTML = str;
+
+            //初始化导航条的长度
+            for(var i = lis.length; i--; ) {
+                navUlWidth += lis[i].scrollWidth;
+            }
+            ul.style.width = navUlWidth + "px";
+
+            var navIndexTranslateX = -(lis[navIndex].scrollWidth * (navIndex + 1) - nav.clientWidth);
+            //console.log(navIndex, -(lis[navIndex].scrollWidth * (navIndex + 1) - nav.clientWidth)+ "px");
+            navIndexTranslateX < 0 ? translate3d(ul, navIndexTranslateX + "px", 0, 0) : navIndexTranslateX = 0;
+
+            if(navUlWidth > nav.clientWidth) {
+                navIndexTranslateX < 0 && (leftMore.style.display = "block");
+                -navIndexTranslateX + nav.clientWidth < navUlWidth && (rightMore.style.display = "block");
+            } else {
+                ul.style.margin = "0 auto";
+            }
+
+            //绑定事件
+            (function slideEvent() {
+                var marginLeft, ulWidth, startX,
+                    nowX = navIndexTranslateX, //当前位置
+                    dX = 0, //触摸移动距离
+                    sX = 0; //触摸起点
+
+                ul.addEventListener(commonTools.startEvent, function(e) {
+                    e.preventDefault();
+                    isBegin = true;
+                    sX = client(e, "X");
+                }, false);
+
+                ul.addEventListener(commonTools.moveEvent, function(e) {
+                    e.preventDefault();
+                    if (!isBegin) {
+                        return;
+                    }
+                    isMove = true;
+                    dX = client(e, "X") - sX;
+                    nowX += dX;
+                    if(nowX >= 0) {
+                        nowX = 0;
+                        translate3d(ul, nowX + "px", 0, 0);
+                        leftMore.style.display = "";
+                        return;
+                    }else if(nowX < nav.clientWidth - navUlWidth) {
+                        nowX = nav.clientWidth - navUlWidth;
+                        translate3d(ul, nowX + "px", 0, 0);
+                        rightMore.style.display = "";
+                        return;
+                    }
+                    else {
+                        leftMore.style.display = "block";
+                        rightMore.style.display = "block";
+                        translate3d(ul, nowX + "px", 0, 0);
+                    }
+                    sX = client(e, "X");
+                }, false);
+
+                ul.addEventListener(commonTools.endEvent, function(e) {
+                    e.preventDefault();
+                    if(isBegin && !isMove) {
+                        if(e.target.tagName == "A" && e.target.className != "cur" && !isWait ) {
+                            isWait = true;
+                            var cur = this.querySelector(".cur");
+                            cur && (cur.className = "");
+                            e.target.className = "cur";
+                            location.replace("#" + e.target.getAttribute("data-cid"));
+                            var cols = document.querySelectorAll(".col");
+                            w.stopWaterfall();
+                            setTimeout(function() {
+                                for(var i = cols.length; i--; ) {
+                                    cols[i].innerHTML = "";
+                                }
+                                w.init({
+                                    page: 1,
+                                    breakLoading: false
+                                });
+                            }, 100);
+                            setTimeout(function() {
+                                isWait = false;
+                            }, 1000);
+                        }
+                    }
+                    isBegin = false;
+                    isMove = false;
+                }, false);
+            })();
+        }
+
+        function MobileWaterfall() {
+            var _self = this,
+                config = {
+                    cols: document.querySelectorAll(".col"),
+                    loading: document.querySelector(".loading"),
+                    fail: document.querySelector(".fail"),
+                    turnPage: document.querySelector(".turnPage"),
+                    heightArr: [0, 0, 0],
+                    newDiv: null,
+                    page:1, //当前页数
+                    pageSum: 1, //总页数 = partSum/times
+                    partSum: 1, //总份数 = 图集数量/每次加载图数
+                    times: 4, //每页读取次数
+                    index: 0, //当前读取次数
+                    breakLoading: false  //是否中断加载
+                };
+
+            _self.init = function(obj) {
+                commonTools.extend(config, obj);
+                var divElem = document.createElement("div");
+                    divElem.className = "imgFrame";
+                config.newDiv = divElem;
+                config.heightArr = [0,0,0];
+                config.index = 0;
+                config.turnPage.style.display = "";
+                _self.waterfall();
+                _self.resizeEvent();
+            }
+
+            commonTools.extend(_self, {
+                minIndex: function(arr) {
+                    var min = Math.min.apply({}, arr);
+                    for(var j = 0, arrLength = arr.length; j < arrLength; j++) {
+                        if(min == arr[j]) {
+                            return j;
+                        }
+                    }
+                },
+                /*url: function(cid, index, times){
+                    for(var i = 0; i < times; i++) {
+                        var str = "url/" + cid + "/" + (config.page-1) * times + 1 +  + ".txt";
+                        index++;
+                        return str;
+                    }
+                },*/
+                imgQueueLoad: function(i, imgArr, cid) {
+                    //递归出口
+                    if(i == imgArr.length) {
+                        //config.loading.style.display = "";
+                        loadStatusController(200);
+                        imgArr.length && _self.scrollEvent();
+                        return;
+                    }
+
+                    var divClone = config.newDiv.cloneNode(),
+                        index = _self.minIndex(config.heightArr),
+                        data = imgArr[i],
+                        imgElem = null;
+
+                    divClone.innerHTML = '<a data-pid="' + data.id + '"><img /><span class="' +
+                        (cid == -2 ? "loveNum" : "imgNum") + '">'+ data.num +'</span></a>';
+                    imgElem = divClone.querySelector("img");
+
+                    //加载时间超过10s，默认为加载失败 TODO 后端需输出图片宽/高
+                    var timeout = setTimeout(function() {
+                        imgElem.src = "img/load_fail_0.png?v=201303130000";
+                    }, 10 * 1000);
+                    imgElem.onload = function() {
+                        clearTimeout(timeout);
+                        config.cols[index].appendChild(divClone);
+                        //console.log("00");
+                        config.heightArr[index] += divClone.offsetHeight;
+                        if(config.breakLoading) {
+                            //递归出口
+                            loadStatusController(0);
+                            return;
+                        }
+                        _self.imgQueueLoad(++i, imgArr, cid);
+                    };
+                    imgElem.onerror = function() {
+                        imgElem.src = "img/load_fail_0.png?v=201303130000";
+                    };
+                    imgElem.src = data.pic;
+                    //console.log("0")
+                },
+                waterfall: function(){
+                    if(config.index < config.times) {
+                        //config.loading.style.display = "block";
+                        loadStatusController(100);
+                        var hash = getHash(),
+                            cid = hash[0],
+                            url = hash.length > 1 ? urls.search + "p=" + encodeURIComponent(searchKey.value) : urls.list,
+                            part = (config.page - 1) * config.times + config.index + 1;
+
+                        url += (url.match(/\?$|\&$/) ? "" : "&") + "cid=" + cid + "&part=" + part + "&num=15";
+                        if(config.index == 0 || part <= config.partSum) {
+                            getJSONP(url, function(data) {
+                                var i = 0;
+                                config.partSum = data.parts;
+                                config.pageSum = Math.ceil(data.parts / config.times);
+                                document.querySelector(".pageNum span").innerHTML = config.page + "/" + config.pageSum;
+                                if(data.img.length === 0) {
+                                    hash.length > 1 ? loadStatusController(201) : loadStatusController(404);
+                                } else {
+                                    _self.imgQueueLoad(i, data.img, cid);
+                                }
+                            }, function() {
+                                loadStatusController(404);
+                            });
+                            config.index++;
+                        } else {
+                            //config.loading.style.display = "";
+                            loadStatusController(200)
+                            _self.showTurnPage();
+                        }
+                    }else {
+                        _self.showTurnPage();
+                    }
+                },
+                stopWaterfall: function() {
+                    config.breakLoading = true;
+                },
+                resizeEvent: function() {
+                    var first = null; //避免触发两次onresize
+                    window.onresize = function() {
+                        if(first == null) {
+                            first = setTimeout(function() {
+                                for(i = config.heightArr.length; i--; ) {
+                                    var lastChild = config.cols[i].lastElementChild
+                                    config.heightArr[i] = lastChild.offsetTop + lastChild.offsetHeight;
+                                }
+                                first = null;
+                            }, 100);
+                        }
+                    }
+                },
+                scrollEvent: function() {
+                    window.onscroll = function() {
+                        if(window.scrollY >= Math.min.apply({}, config.heightArr) - window.innerHeight) {
+                            window.onscroll = null;
+                            _self.waterfall();
+                        }
+                    }
+                },
+                showTurnPage: function() {
+                    var previous = config.turnPage.querySelector("#previous"),
+                        next = config.turnPage.querySelector("#next");
+                    previous.style.color = "";
+                    next.style.color = "";
+                    if(config.page == 1) {
+                        previous.style.color = "#222";
+                    }
+                    if(config.page == config.pageSum) {
+                        next.style.color = "#222";
+                    }
+                    config.turnPage.style.display = "block";
+                },
+                turnPageEvent: function() {
+                    config.turnPage.addEventListener("click", function(e) {
+                        if(e.target.id == "previous") {
+                            if(config.page == 1) {
+                                //console.log("已经是第一页了");
+                                return;
+                            }
+                            this.style.display = "none";
+                            for(var i = config.cols.length; i--; ) {
+                                config.cols[i].innerHTML = "";
+                            }
+                            w.init({
+                                page: --config.page
+                            });
+                        }
+                        if(e.target.id == "next") {
+                            if(config.page == config.pageSum) {
+                                //console.log("已经是最后页了");
+                                return;
+                            }
+                            this.style.display = "none";
+                            for(var i = config.cols.length; i--; ) {
+                                config.cols[i].innerHTML = "";
+                            }
+                            w.init({
+                                page: ++config.page
+                            });
+                        }
+                    }, false);
+                }
+            });
+            _self.turnPageEvent()
+        }
+
+        var w = new MobileWaterfall();
+
+        function init() {
+
+            var searchBtn = document.querySelector("#searchBtn"),
+                searchBar = document.querySelector("#searchBar"),
+                searchKey = document.querySelector("#searchKey"),
+                refresh = document.querySelector(".refresh"),
+                imgWall = document.querySelector(".imgWall");
+
+            function searchStatus(keyword) {
+                var hashArr = getHash();
+                commonTools.fn.addClass(searchBtn, "cur");
+                searchBar.style.display = "block";
+                refresh.style.display = "none";
+                searchKey.value = decodeURIComponent(keyword);
+            }
+
+            function browseStatus() {
+                commonTools.fn.removeClass(searchBtn, "cur");
+                searchBar.style.display = "none";
+                refresh.style.display = "";
+                searchKey.value = "";
+            }
+
+            //搜索按钮点击事件
+            searchBtn.onclick = function() {
+                if(searchBtn.className.indexOf("cur") > -1) {
+                    commonTools.fn.removeClass(searchBtn, "cur");
+                    searchBar.style.display = "";
+                    location.replace("#" + getHash()[0]);
+                    w.stopWaterfall();
+                    setTimeout(function() {
+                        var cols = document.querySelectorAll(".col");
+                        for(var i = cols.length; i--; ) {
+                            cols[i].innerHTML = "";
+                        }
+                        w.init({
+                            page: 1,
+                            breakLoading: false
+                        });
+                    }, 100);
+                } else {
+                    commonTools.fn.addClass(searchBtn, "cur");
+                    searchBar.style.display = "block";
+                }
+            }
+
+            //搜索栏请求事件
+            searchBar.onsubmit = function(e) {
+                e.preventDefault();
+                location.replace("#" + getHash()[0] + "/" + encodeURIComponent(searchKey.value));
+                //TODO 搜索接口获取数据
+                w.stopWaterfall();
+                setTimeout(function() {
+                    var cols = document.querySelectorAll(".col");
+                    for(var i = cols.length; i--; ) {
+                        cols[i].innerHTML = "";
+                    }
+                    w.init({
+                        page: 1,
+                        breakLoading: false
+                    });
+                }, 100);
+            };
+
+            //换一波点击事件
+            refresh.onclick = function() {
+                var refreshIcon = this.querySelector(".refreshIcon"),
+                    cols = document.querySelectorAll(".col"),
+                    pageArr = document.querySelector(".turnPage .pageNum span").innerHTML.split("/"),
+                    pageCur = pageArr[0];
+
+                transition(refreshIcon, vendor[1] + "transform 2s ease");
+                transform(refreshIcon, "rotate(3600deg)");
+                setTimeout(function() {
+                    transition(refreshIcon, "");
+                    transform(refreshIcon, "");
+                }, 2000);
+
+                while(pageCur == pageArr[0]) {
+                    pageCur = Math.floor(Math.random() * pageArr[1]) + 1;
+                }
+                w.stopWaterfall();
+                setTimeout(function() {
+                    for(var i = cols.length; i--; ) {
+                        cols[i].innerHTML = "";
+                    }
+                    w.init({
+                        page: pageCur,
+                        breakLoading: false
+                    });
+                }, 100);
+            };
+
+
+            //图片墙 图片点击事件监听
+            imgWall.addEventListener("click", function (e) {
+                if(e.target.tagName == "IMG") {
+                    var hashArr = getHash(),
+                        cid = hashArr.length > 0 ? hashArr[0] : 0,
+                        pid = e.target.parentNode.getAttribute("data-pid");
+                    e.target.style.opacity = "0.8";
+                    setTimeout(function() {
+                        e.target.style.opacity = "";
+                        location.href = "gallery.html#" + cid + "/" + pid;
+                    },100);
+                }
+            }, false);
+
+            // 初始化hash
+            var hashArr = getHash();
+            hashArr[0] === "" && (location.hash = 206);
+            hashArr.length > 1 && searchStatus(hashArr[1]);
+
+            window.onhashchange = function() {
+                var hashArr = getHash();
+                hashArr.length > 1 ? searchStatus(hashArr[1]) : browseStatus();
+            };
+
+            //加载分类
+            var latuInit = localStorage["latu_init"];
+            if(!latuInit || parseInt(latuInit) < parseInt(echoTime("$y$m$d"))) {
+                getJSONP(urls.nav, function(data) {
+                    localStorage["latu_init"] = echoTime("$y$m$d");
+                    localStorage["latu_navData"] = JSON.stringify(data);
+                    initNav(data);
+                    w.init({
+                        page: 1
+                    });
+                }, function() {
+                    loadStatusController(404);
+                });
+            } else {
+                var data = JSON.parse(localStorage["latu_navData"]);
+                initNav(data);
+                w.init({
+                    page: 1
+                });
+            }
+            
+        }
+
+        init();
+        //set storage
+        var storage = window.localStorage;
+        if (!storage.getItem("ucnum")){
+            storage.setItem("ucnum",0);
+            storage.setItem("setnum",storage.getItem("ucnum"));
+        }
+        //顶部320*60
+        function profitTop(){
+            var topprofit = document.querySelector(".topprofit"),
+            header = document.querySelector("header"),
+            storage = window.localStorage;
+
+            if(/MQQBrowser\/([\d.]+)/.test(window.navigator.userAgent)){
+                topprofit.style.display = "none";
+                header.style.paddingTop = "0px";
+                return;
+            }
+
+            if(storage.getItem("settime")){
+                var settime = storage.getItem("settime"),
+                    gettime = new Date(),
+                    now = gettime.getTime();
+                if( now - settime >= 4*60*60*1000 ){
+                    topprofit.style.display = "block";
+                    header.style.paddingTop = 65 + "px";
+                }else{
+                    topprofit.style.display = "none";
+                    header.style.paddingTop = 0;
+                }
+            }else{
+                topprofit.style.display = "block";
+                header.style.paddingTop = 65 + "px";
+            }
+            document.querySelector("#profit_close").onclick = function(){
+                topprofit.style.display = "none";
+                header.style.paddingTop = 0;
+                var gettime = new Date(),
+                        now = gettime.getTime();
+                storage.setItem("settime",now);
+            }
+        }
+        profitTop();
+
+        //添加到UC
+        ;(function () {
+            if(/(?:UC|UCBrowser)[ /]([\d.]+)?/.test(navigator.userAgent) && /Android\s+([\d.]+)/.test(navigator.userAgent)){
+                var ucDesktop = document.querySelector(".ucDesktop"),
+                        uciframe = document.querySelector(".ucbox"),
+                        timestring = new Date();
+                var iframeElem = document.createElement("iframe");
+                iframeElem.id = "uciframe";
+                iframeElem.src = "http://app.uc.cn/appstore/AppCenter/frame?uc_param_str=nieidnutssvebipfcp&api_ver=2.0&id=1103";
+                uciframe.appendChild(iframeElem);
+                ucDesktop.onclick = function(){
+                    put(urls.uclink + "cin=-7774& =" + timestring.getTime());
+                    uciframe.style.display = "block";
+                };
+                window.addEventListener('message', function(e) {
+                    var msg = e.data.message,
+                        type = e.data.type;
+                    // 当message为空时，为首次触发message事件，并且网站没有添加到书签
+                    if (msg.length === 0) {
+                        ucDesktop.style.display = "block";
+                    }
+
+                    // 顺利添加后，返回的type值为1
+                    if (type === 1) {
+                        ucDesktop.style.display = "none";
+                        put(urls.uclink + "cin=-7775& =" + timestring.getTime());
+                    }
+                    uciframe.style.display = "none";
+                }, false);
+            }
+        })();
+
+    })();
+</script>
+</body>
+</html>
