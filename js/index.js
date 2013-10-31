@@ -36,10 +36,10 @@
             }
         };
         function getsFail(){
-            var topprofit = document.querySelector(".topprofit"),
+            /*var topprofit = document.querySelector(".topprofit"),
             header = document.querySelector("header");
             topprofit.style.display = "none";
-            header.style.paddingTop = 0;
+            header.style.paddingTop = 0;*/
         };
     }
     profit();
@@ -221,7 +221,7 @@
                 loading: document.querySelector(".loading"),
                 fail: document.querySelector(".fail"),
                 turnPage: document.querySelector(".turnPage"),
-                heightArr: [0, 0, 0, 0],
+                heightArr: [0, 0, 0],
                 newDiv: null,
                 page:1, //当前页数
                 pageSum: 1, //总页数 = partSum/times
@@ -236,7 +236,7 @@
             var divElem = document.createElement("div");
                 divElem.className = "imgFrame";
             config.newDiv = divElem;
-            config.heightArr = [0,0,0,0];
+            config.heightArr = [0,0,0];
             config.index = 0;
             config.turnPage.style.display = "";
             _self.waterfall();
@@ -545,7 +545,7 @@
                 page: 1
             });
         }
-        
+
     }
 
     init();
@@ -556,7 +556,7 @@
         storage.setItem("setnum",storage.getItem("ucnum"));
     }
     //顶部320*60
-    function profitTop(){
+    /*function profitTop(){
         var topprofit = document.querySelector(".topprofit"),
         header = document.querySelector("header"),
         storage = window.localStorage;
@@ -579,7 +579,7 @@
                 header.style.paddingTop = 0;
             }
         }else{
-            topprofit.style.display = "block";
+            //topprofit.style.display = "block";
             header.style.paddingTop = 65 + "px";
         }
         document.querySelector("#profit_close").onclick = function(){
@@ -590,7 +590,7 @@
             storage.setItem("settime",now);
         }
     }
-    profitTop();
+    profitTop(); */
 
     //添加到UC
     ;(function () {
