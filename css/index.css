@@ -12,7 +12,7 @@ html { background: #383838; }
 body {margin:0;padding:0;background: #383838;}
 a { text-decoration: none; }
 header {height:40px; padding-top: 0px; border-top:1px solid #4c4c4c; border-bottom:1px solid #111111; background:#1f1f1f; position: relative}
-header .searchBtn {
+header a.searchBtn {
     position: absolute;
     top:0;
     right: 0;
@@ -36,6 +36,7 @@ header h1{font-size:24px;font-weight: 100;color: #fff;margin:0 50px; height:40px
     background-color: #232323;
     border-bottom:1px solid #111111;
     display: none;
+    z-index: 100;
 }
 .searchBar input{
     padding: 0;

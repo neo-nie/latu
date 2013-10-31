@@ -435,18 +435,23 @@
             if(searchBtn.className.indexOf("cur") > -1) {
                 commonTools.fn.removeClass(searchBtn, "cur");
                 searchBar.style.display = "";
-                location.replace("#" + getHash()[0]);
-                w.stopWaterfall();
-                setTimeout(function() {
-                    var cols = document.querySelectorAll(".col");
-                    for(var i = cols.length; i--; ) {
-                        cols[i].innerHTML = "";
-                    }
-                    w.init({
-                        page: 1,
-                        breakLoading: false
-                    });
-                }, 100);
+
+                var newHash = "#" + getHash()[0];
+                if (location.hash !== newHash)
+                {
+                    location.replace(newHash);
+                    w.stopWaterfall();
+                    setTimeout(function() {
+                        var cols = document.querySelectorAll(".col");
+                        for(var i = cols.length; i--; ) {
+                            cols[i].innerHTML = "";
+                        }
+                        w.init({
+                            page: 1,
+                            breakLoading: false
+                        });
+                    }, 100);
+                }
             } else {
                 commonTools.fn.addClass(searchBtn, "cur");
                 searchBar.style.display = "block";
